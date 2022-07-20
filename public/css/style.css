@@ -1,0 +1,92 @@
+@import url('https://fonts.googleapis.com/css2?family=Recursive:wght@400;700&family=Righteous&display=swap');
+
+
+body {
+    background-color: #FB6B6B;
+    font-family: 'Recursive', sans-serif;
+    height: 100vh;
+}
+
+* {
+    box-sizing: border-box;
+}
+
+.root {
+    display: flex;
+    flex-direction: column;
+    height: 100%;
+}
+
+.initial-screen {
+    margin: auto;
+    height: 320px;
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    justify-content: space-between;
+}
+
+.initial-screen img {
+    width: 136px;
+    height: 161px;
+}
+
+h1 {
+    font-family: 'Righteous', cursive;
+    font-weight: 400;
+    font-size: 36px;
+    color: #FFFFFF;
+}
+
+.initial-screen .button-start {
+    width: 246px;
+    height: 54px;
+    border-radius: 5px;
+    background-color: #FFFFFF;
+    border: 1px solid #D70900;
+    box-shadow: 0 4px 4px 0 rgba(0,0,0,0.15);
+    font-weight: 400;
+    color: #D70900;
+    font-size: 18px;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    cursor: pointer;
+}
+
+.initial-screen .button-start:hover {
+    opacity: 0.8;
+}
+
+.deck-screen {
+    color: #333333;
+}
+
+.deck-screen img {
+    width: 52px;
+    height: 60px;
+}
+
+.deck-screen .content-deck-screen {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    width: 240px;
+    margin: 38px auto auto;
+}
+
+.deck-screen .deck-progress {
+    width: 100%;
+    height: 70px;
+    background-color: #FFFFFF;
+    box-shadow: 0 -4px 6px 0 rgba(0,0,0,0.05);
+    position: fixed;
+    left: 0;
+    right: 0;
+    bottom: 0;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    font-weight: 400;
+    font-size: 18px;
+}
