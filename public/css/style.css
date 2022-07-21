@@ -55,7 +55,7 @@ h1 {
 }
 
 .initial-screen .button-start:hover {
-    opacity: 0.8;
+    filter: brightness(0.8);
 }
 
 .deck-screen {
@@ -96,7 +96,7 @@ h1 {
 
 .deck {
     margin: 51px 0 120px;
-    width: 90%;
+    width: 80%;
     max-width: 450px;
     min-width: 300px;
 }
@@ -112,9 +112,12 @@ h1 {
     justify-content: space-between;
     padding: 0 15px;
     margin-bottom: 25px;
+    transition: all .2s linear;
+    color: #333333;
+    position: relative;
 }
 
-.flashcard p {
+.flashcard span {
     font-weight: 700;
     font-size: 16px;
 }
@@ -122,5 +125,66 @@ h1 {
 .flashcard ion-icon {
     width: 20px;
     height: 23px;
-    color: #333333;
+    cursor: pointer;
+}
+
+.flashcard.progress-ask,
+.flashcard.progress-answer {
+    height: auto;
+    background-color: #FFFFD4;
+    padding: 15px;
+    align-items: flex-start;
+}
+
+.flashcard.progress-ask span,
+.flashcard.progress-answer span {
+    font-size: 18px;
+    font-weight: 400;
+}
+
+.flashcard.progress-ask img,
+.flashcard.progress-answer img {
+    width: 30px;
+    height: 20px;
+    position: absolute;
+    bottom: 10px;
+    right: 10px;
+    cursor: pointer;
+}
+
+.flashcard.progress-answer {
+    display: flex;
+    flex-direction: column;
+}
+
+.progress-answer .options {
+    width: 100%;
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+    text-align: center;
+    margin-top: 25px;
+}
+
+.options .option-1,
+.options .option-2,
+.options .option-3 {
+    width: 31%;
+    height: 37px;
+    border-radius: 5px;
+    font-size: 12px;
+    padding: 7px;
+    color: #FFFFFF;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    background-color: #FF3030;
+}
+
+.options .option-2 {
+    background-color: #FF922E;
+}
+
+.options .option-3 {
+    background-color: #2FBE34;
 }
