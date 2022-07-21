@@ -61,8 +61,10 @@ function Flashcard ({flashcard, index}) {
     const {question, answer, status, result} = flashcard;
 
     const [cardStatus, setCardStatus] = React.useState(status);
+    const [cardResult, setCardResult] = React.useState(result);
+    const [iconResult, setIconResult] = React.useState('');
 
-    const className = (`flashcard ${cardStatus} ${result}`).trim();
+    const className = (`flashcard ${cardStatus} ${cardResult}`).trim();
 
     let template;
 
@@ -74,6 +76,7 @@ function Flashcard ({flashcard, index}) {
             </div>
         )
     }
+
     else if (cardStatus === 'progress-ask') {
         template = (
             <div key={index} className={className}>
@@ -82,19 +85,47 @@ function Flashcard ({flashcard, index}) {
             </div>
         )
     }
+    
     else if (cardStatus === 'progress-answer') {
         template = (
             <div key={index} className={className}>
                 <span>{answer}</span>
                 <div className="options">
-                    <div className="option-1" onClick={() => setCardStatus('concluded')}>Não lembrei</div>
-                    <div className="option-2" onClick={() => setCardStatus('concluded')}>Quase não lembrei</div>
-                    <div className="option-3" onClick={() => setCardStatus('concluded')}>Zap!</div>
+                    <div className="option-1"
+                        onClick={() => {
+                            setCardStatus('concluded'); 
+                            setCardResult('incorrect');
+                            setIconResult("close")}}>
+                            Não lembrei
+                    </div>
+                    <div className="option-2" 
+                        onClick={() => {
+                            setCardStatus('concluded'); 
+                            setCardResult('correct');
+                            setIconResult("help")}}>
+                            Quase não lembrei
+                    </div>
+                    <div className="option-3" 
+                        onClick={() => {
+                            setCardStatus('concluded'); 
+                            setCardResult('correct-good');
+                            setIconResult("checkmark");
+                            console.log(setIconResult)}}>
+                            Zap!
+                    </div>
                 </div>
             </div>
         )
     }
-
+    else {
+        template = (
+            <div key={index} className={className}>
+                <s><span>Pergunta {index+1}</span></s>
+                <ion-icon name={`${iconResult}-circle`}></ion-icon>
+                
+            </div>
+        )
+    }
     
     return (template);
 }
@@ -107,7 +138,7 @@ export default function Deck({setTotal, progress, setProgress}) {
         <div className="deck">
 
             {deck.map((flashcard, index) => (
-                <Flashcard flashcard={flashcard} index={index} />
+                <Flashcard flashcard={flashcard} index={index}/>
             ))}
         </div>
     );

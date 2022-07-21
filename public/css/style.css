@@ -112,7 +112,7 @@ h1 {
     justify-content: space-between;
     padding: 0 15px;
     margin-bottom: 25px;
-    transition: all .2s linear;
+    transition: heigth .2s linear;
     color: #333333;
     position: relative;
 }
@@ -131,6 +131,7 @@ h1 {
 .flashcard.progress-ask,
 .flashcard.progress-answer {
     height: auto;
+    min-height: 131px;
     background-color: #FFFFD4;
     padding: 15px;
     align-items: flex-start;
@@ -140,6 +141,7 @@ h1 {
 .flashcard.progress-answer span {
     font-size: 18px;
     font-weight: 400;
+    margin-bottom: 25px;
 }
 
 .flashcard.progress-ask img,
@@ -163,7 +165,6 @@ h1 {
     align-items: center;
     justify-content: space-between;
     text-align: center;
-    margin-top: 25px;
 }
 
 .options .option-1,
@@ -187,4 +188,21 @@ h1 {
 
 .options .option-3 {
     background-color: #2FBE34;
+}
+
+.incorrect {
+    color: #FF3030;
+}
+
+.correct {
+    color: #FF922E;
+}
+
+.correct-good {
+    color: #2FBE34;
+}
+
+.flashcard.concluded ion-icon {
+    width: 23px;
+    height: 23px;
 }
