@@ -133,11 +133,11 @@ export default function Deck({setTotal, progress, setProgress, setIconsResult, i
     setTotal(deck.length);
     
     return (
-        <div className="deck">
+        <main className="deck">
 
             {deck.map((flashcard, index) => (
                 <Flashcard flashcard={flashcard} index={index} progress={progress} setProgress={setProgress} iconsResult={iconsResult} setIconsResult={setIconsResult}/>
             ))}
-        </div>
+        </main>
     );
 }

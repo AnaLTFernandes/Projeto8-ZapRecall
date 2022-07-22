@@ -1,5 +1,6 @@
 import { useState } from 'react';
 import Deck from './Deck';
+import DeckProgress from './DeckProgress';
 
 export default function DeckScreen() {
     const [total, setTotal] = useState(0);
@@ -15,12 +16,7 @@ export default function DeckScreen() {
 
             <Deck setTotal={setTotal} progress={progress} setProgress={setProgress} iconsResult={iconsResult} setIconsResult={setIconsResult}/>
             
-            <main className="deck-progress">
-                {progress}/{total} CONCLUÍDOS
-                <div className='icons-progress'>
-                    {iconsResult.map(({iconName, iconClass}) => <ion-icon class={iconClass} name={`${iconName}-circle`}></ion-icon>)}
-                </div>
-            </main>
+            <DeckProgress progress={progress} total={total} iconsResult={iconsResult}/>
         </div>
     );
 }
