@@ -180,6 +180,7 @@ h1 {
     align-items: center;
     justify-content: center;
     background-color: #FF3030;
+    cursor: pointer;
 }
 
 .options .option-2 {
@@ -203,6 +204,19 @@ h1 {
 }
 
 .flashcard.concluded ion-icon {
+    width: 23px;
+    height: 23px;
+}
+
+.deck-progress {
+    flex-direction: column;
+}
+
+.icons-progress {
+    display: flex;
+}
+
+.icons-progress ion-icon {
     width: 23px;
     height: 23px;
 }

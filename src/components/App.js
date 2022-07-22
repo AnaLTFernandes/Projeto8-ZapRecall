@@ -1,8 +1,8 @@
-import React from 'react';
+import { useState } from 'react';
 import DeckScreen from './DeckScreen';
 
 export default function App() {
-    const [isInitialScreen, setIsInitialScreen] = React.useState(true);
+    const [isInitialScreen, setIsInitialScreen] = useState(true);
     return (
         <>
             {isInitialScreen

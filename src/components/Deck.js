@@ -1,11 +1,11 @@
-import React from "react";
+import { useState } from "react";
 
 const deck = [
     {
         question:'O que é JSX?',
         answer:'Uma extensão de linguagem do JavaScript',
-        status: '', // progress-ask/progress-answer/concluded
-        result: '' // correct-good/correct/incorrect
+        status: '',
+        result: ''
     },
     {
         question:'O React é __ ',
@@ -57,16 +57,22 @@ function sort() {
 
 sort();
 
-function Flashcard ({flashcard, index}) {
+function Flashcard ({flashcard, index, setProgress, progress, iconsResult, setIconsResult}) {
     const {question, answer, status, result} = flashcard;
 
-    const [cardStatus, setCardStatus] = React.useState(status);
-    const [cardResult, setCardResult] = React.useState(result);
-    const [iconResult, setIconResult] = React.useState('');
+    const [cardStatus, setCardStatus] = useState(status);
+    const [cardResult, setCardResult] = useState(result);
 
     const className = (`flashcard ${cardStatus} ${cardResult}`).trim();
 
     let template;
+
+    function setStates (classResult, iconName) {
+        setCardStatus('concluded'); 
+        setCardResult(classResult);
+        setIconsResult([...iconsResult, {iconName:iconName, iconClass:classResult}]);
+        setProgress(progress+1);
+    }
 
     if(cardStatus === '') {
         template = (
@@ -93,24 +99,17 @@ function Flashcard ({flashcard, index}) {
                 <div className="options">
                     <div className="option-1"
                         onClick={() => {
-                            setCardStatus('concluded'); 
-                            setCardResult('incorrect');
-                            setIconResult("close")}}>
+                            setStates('incorrect', 'close')}}>
                             Não lembrei
                     </div>
                     <div className="option-2" 
                         onClick={() => {
-                            setCardStatus('concluded'); 
-                            setCardResult('correct');
-                            setIconResult("help")}}>
+                            setStates('correct', 'help')}}>
                             Quase não lembrei
                     </div>
                     <div className="option-3" 
                         onClick={() => {
-                            setCardStatus('concluded'); 
-                            setCardResult('correct-good');
-                            setIconResult("checkmark");
-                            console.log(setIconResult)}}>
+                            setStates('correct-good', 'checkmark')}}>
                             Zap!
                     </div>
                 </div>
@@ -121,8 +120,7 @@ function Flashcard ({flashcard, index}) {
         template = (
             <div key={index} className={className}>
                 <s><span>Pergunta {index+1}</span></s>
-                <ion-icon name={`${iconResult}-circle`}></ion-icon>
-                
+                <ion-icon name={`${iconsResult.at(-1).iconName}-circle`}></ion-icon>
             </div>
         )
     }
@@ -130,7 +128,7 @@ function Flashcard ({flashcard, index}) {
     return (template);
 }
 
-export default function Deck({setTotal, progress, setProgress}) {
+export default function Deck({setTotal, progress, setProgress, setIconsResult, iconsResult}) {
 
     setTotal(deck.length);
     
@@ -138,7 +136,7 @@ export default function Deck({setTotal, progress, setProgress}) {
         <div className="deck">
 
             {deck.map((flashcard, index) => (
-                <Flashcard flashcard={flashcard} index={index}/>
+                <Flashcard flashcard={flashcard} index={index} progress={progress} setProgress={setProgress} iconsResult={iconsResult} setIconsResult={setIconsResult}/>
             ))}
         </div>
     );
