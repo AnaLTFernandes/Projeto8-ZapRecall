@@ -1,3 +1,8 @@
+import partyIMG from '../assets/images/party.png';
+import sadIMG from '../assets/images/sad.png';
+
+import './DeckProgress.css';
+
 export default function DeckProgress ({progress, total, iconsResult}) {
     let allRigth = true;
     let template;
@@ -13,11 +18,11 @@ export default function DeckProgress ({progress, total, iconsResult}) {
 
         let { img, title, text } = (allRigth
             ? {
-                img:'./images/party.png', 
+                img:partyIMG, 
                 title:'Parabéns!', 
                 text:'Você não esqueceu de nenhum flashcard!'}
             : {
-                img:'./images/sad.png', 
+                img:sadIMG, 
                 title:'Putz...', 
                 text:'Ainda faltam alguns... Mas não desanime!'}
         );

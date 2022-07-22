@@ -1,0 +1,19 @@
+.deck-screen {
+    color: #333333;
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+}
+
+.deck-screen img {
+    width: 52px;
+    height: 60px;
+}
+
+.deck-screen .top-deck-screen {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    width: 240px;
+    margin: 38px auto auto;
+}

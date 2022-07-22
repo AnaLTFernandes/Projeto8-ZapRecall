@@ -1,63 +1,10 @@
 import { useState } from "react";
 
-const deck = [
-    {
-        question:'O que é JSX?',
-        answer:'Uma extensão de linguagem do JavaScript',
-        status: '',
-        result: ''
-    },
-    {
-        question:'O React é __ ',
-        answer:'uma biblioteca JavaScript para construção de interfaces',
-        status: '',
-        result: ''
-    },
-    {
-        question:'Componentes devem iniciar com __',
-        answer:'letra maiúscula',
-        status: '',
-        result: ''
-    },
-    {
-        question:'Podemos colocar __ dentro do JSX ',
-        answer:'expressões',
-        status: '',
-        result: ''
-    },
-    {
-        question:'O ReactDOM nos ajuda __ ',
-        answer:' interagindo com a DOM para colocar componentes React na mesma',
-        status: '',
-        result: ''
-    },
-    {
-        question:'Usamos o npm para __ ',
-        answer:'gerenciar os pacotes necessários e suas dependências',
-        status: '',
-        result: ''
-    },
-    {
-        question:'Usamos props para __ ',
-        answer:'passar diferentes informações para componentes',
-        status: '',
-        result: ''
-    },
-    {
-        question:'Usamos estado (state) para __ ',
-        answer:'dizer para o React quais informações quando atualizadas devem renderizar a tela novamente',
-        status: '',
-        result: ''
-    },
-]
+import arrowIMG from '../assets/images/setinha.png';
 
-function sort() {
-    deck.sort(() => Math.random() -0.5);
-}
+import './Flashcard.css'
 
-sort();
-
-function Flashcard ({flashcard, index, setProgress, progress, iconsResult, setIconsResult}) {
+export default function Flashcard ({flashcard, index, setProgress, progress, iconsResult, setIconsResult}) {
     const {question, answer, status, result} = flashcard;
 
     const [cardStatus, setCardStatus] = useState(status);
@@ -87,7 +34,7 @@ function Flashcard ({flashcard, index, setProgress, progress, iconsResult, setIc
         template = (
             <div key={index} className={className}>
                 <span>{question}</span>
-                <img alt='turn' src="./images/setinha.png" onClick={() => setCardStatus('progress-answer')} />
+                <img alt='turn' src={arrowIMG} onClick={() => setCardStatus('progress-answer')} />
             </div>
         )
     }
@@ -126,18 +73,4 @@ function Flashcard ({flashcard, index, setProgress, progress, iconsResult, setIc
     }
     
     return (template);
-}
-
-export default function Deck({setTotal, progress, setProgress, setIconsResult, iconsResult}) {
-
-    setTotal(deck.length);
-    
-    return (
-        <main className="deck">
-
-            {deck.map((flashcard, index) => (
-                <Flashcard flashcard={flashcard} index={index} progress={progress} setProgress={setProgress} iconsResult={iconsResult} setIconsResult={setIconsResult}/>
-            ))}
-        </main>
-    );
 }

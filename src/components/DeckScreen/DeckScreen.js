@@ -1,6 +1,10 @@
 import { useState } from 'react';
-import Deck from './Deck';
-import DeckProgress from './DeckProgress';
+import Deck from '../Deck/Deck';
+import DeckProgress from '../DeckProgress/DeckProgress';
+
+import logoIMG from '../assets/images/logo.png';
+
+import './DeckScreen.css'
 
 export default function DeckScreen() {
     const [total, setTotal] = useState(0);
@@ -9,8 +13,9 @@ export default function DeckScreen() {
 
     return (
         <div className="deck-screen">
+            
             <header className="top-deck-screen">
-                <img src="./images/logo.png" alt="ZapRecall"/>
+                <img src={logoIMG} alt="ZapRecall"/>
                 <h1>ZapRecall</h1>
             </header>
 
