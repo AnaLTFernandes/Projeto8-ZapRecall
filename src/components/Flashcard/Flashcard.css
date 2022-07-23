@@ -103,4 +103,18 @@
 .flashcard.concluded ion-icon {
     width: 27px;
     height: 27px;
+    cursor: auto;
+}
+
+.secretImage {
+    position: fixed;
+    left: 0px;
+    bottom: 0px;
+    z-index: 1;
+}
+
+.secret {
+    border: 3px solid;
+    border-image-slice: 1;
+    border-image-source: linear-gradient(180deg, #743ad5, #d53a9d);
 }

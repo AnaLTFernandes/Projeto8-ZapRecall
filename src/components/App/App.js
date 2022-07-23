@@ -12,7 +12,7 @@ export default function App() {
         <>
             {isInitialScreen
                 ? <InitialScreen setIsInitialScreen={setIsInitialScreen}/>
-                : <DeckScreen />
+                : <DeckScreen setIsInitialScreen={setIsInitialScreen}/>
             }
         </>
     );

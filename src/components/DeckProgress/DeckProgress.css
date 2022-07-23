@@ -32,6 +32,7 @@
 .deck-screen .deck-progress.end-game {
     height: auto;
     padding: 16px 0 10px;
+    z-index: 2;
 }
 
 .deck-screen .deck-progress.end-game img {
