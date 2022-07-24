@@ -6,13 +6,13 @@ import secretIMG from '../assets/images/secret.gif';
 import './Flashcard.css';
 
 export default function Flashcard ({
-        index, 
+        index,
         answer,
         status,
         result,
-        question, 
+        question,
         progress,
-        iconsResult, 
+        iconsResult,
         setProgress,
         setIconsResult,
         ...other
@@ -26,21 +26,21 @@ export default function Flashcard ({
     let template;
 
     function setStates (classResult, iconName) {
-        setCardStatus('concluded'); 
+        setCardStatus('concluded');
         setCardResult(classResult);
         setIconsResult([...iconsResult, {iconName:iconName, iconClass:classResult}]);
         setProgress(progress+1);
     }
 
-    if(cardStatus === '') {
+    if (cardStatus === '') {
         template = (
             <div key={index} className={className}>
 
                 <span>Pergunta {index+1}</span>
-                
+
                 <ion-icon name="play-outline" onClick={() => setCardStatus('progress-ask')}></ion-icon>
             </div>
-        )
+        );
     }
 
     else if (cardStatus === 'progress-ask') {
@@ -51,9 +51,9 @@ export default function Flashcard ({
 
                 <img alt='turn' src={arrowIMG} onClick={() => setCardStatus('progress-answer')} />
             </div>
-        )
+        );
     }
-    
+
     else if (cardStatus === 'progress-answer') {
         template = (
             <div key={index} className={className}>
@@ -67,47 +67,47 @@ export default function Flashcard ({
                             Não lembrei
                     </div>
 
-                    <div className="option-2" 
+                    <div className="option-2"
                         onClick={() => {setStates('correct', 'help')}}>
                             Quase não lembrei
                     </div>
 
-                    <div className="option-3" 
+                    <div className="option-3"
                         onClick={() => {setStates('correct-good', 'checkmark')}}>
                             Zap!
                     </div>
                 </div>
             </div>
-        )
+        );
     }
 
     else {
         let icon;
 
         if (cardResult === 'correct-good') {
-            icon = 'checkmark'
-        }
+            icon = 'checkmark';
+        };
         if (cardResult === 'correct') {
-            icon = 'help'
-        }
+            icon = 'help';
+        };
         if (cardResult === 'incorrect') {
-            icon = 'close'
-        }
+            icon = 'close';
+        };
 
         template = (
             <div key={index} className={className}>
 
                 <s><span>Pergunta {index+1}</span></s>
 
-                {icon === 'checkmark' && other.secret ? 
+                {icon === 'checkmark' && other.secret ?
                     <img className='secretImage' alt='' src={secretIMG}></img>
                     : ''
                 }
 
                 <ion-icon name={`${icon}-circle`}></ion-icon>
             </div>
-        )
-    }
+        );
+    };
 
     return (template);
-}
+};

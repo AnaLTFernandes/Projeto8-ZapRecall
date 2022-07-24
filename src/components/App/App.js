@@ -2,8 +2,8 @@ import { useState } from 'react';
 import DeckScreen from '../DeckScreen/DeckScreen';
 import InitialScreen from '../InitialScreen/InitialScreen';
 
-import '../assets/css/reset.css';
-import '../assets/css/style.css';
+import './css/reset.css';
+import './css/style.css';
 
 export default function App() {
     const [isInitialScreen, setIsInitialScreen] = useState(true);
@@ -16,4 +16,4 @@ export default function App() {
             }
         </>
     );
-}
+};

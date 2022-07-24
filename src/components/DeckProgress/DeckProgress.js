@@ -9,19 +9,21 @@ export default function DeckProgress ({ progress, total, iconsResult }) {
     iconsResult.forEach(({ iconClass }) => {
         if (iconClass === 'incorrect') {
             allRigth = false;
-        }
-    })
+        };
+    });
 
     function messageResult() {
-        let { img, title, text } = (allRigth
+        const { img, title, text } = (allRigth
             ? {
-                img:partyIMG, 
-                title:'Parabéns!', 
-                text:'Você não esqueceu de nenhum flashcard!'}
+                img:partyIMG,
+                title:'Parabéns!',
+                text:'Você não esqueceu de nenhum flashcard!'
+              }
             : {
-                img:sadIMG, 
-                title:'Putz...', 
-                text:'Ainda faltam alguns... Mas não desanime!'}
+                img:sadIMG,
+                title:'Putz...',
+                text:'Ainda faltam alguns... Mas não desanime!'
+              }
         );
 
         return (
@@ -35,13 +37,13 @@ export default function DeckProgress ({ progress, total, iconsResult }) {
                 <div>{text}</div>
             </div>
         );
-    }
+    };
 
     return (
         <div className={(`deck-progress ${progress === total ? 'end-game' : ''}`).trim()}>
-                
+
             {progress === total ? messageResult() : ''}
-                
+
             <div className="status-progress">{progress}/{total} CONCLUÍDOS</div>
 
             <div className='icons-progress'>
@@ -51,4 +53,4 @@ export default function DeckProgress ({ progress, total, iconsResult }) {
             </div>
         </div>
     );
-}
+};

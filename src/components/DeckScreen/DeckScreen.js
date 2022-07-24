@@ -4,7 +4,7 @@ import DeckProgress from '../DeckProgress/DeckProgress';
 
 import logoIMG from '../assets/images/logo.png';
 
-import './DeckScreen.css'
+import './DeckScreen.css';
 
 export default function DeckScreen({ setIsInitialScreen }) {
     const [total, setTotal] = useState(0);
@@ -13,21 +13,21 @@ export default function DeckScreen({ setIsInitialScreen }) {
 
     return (
         <div className="deck-screen">
-            
+
             <header className="top-deck-screen" onClick={() => setIsInitialScreen(true)}>
                 <img src={logoIMG} alt="ZapRecall"/>
                 <h1>ZapRecall</h1>
             </header>
 
-            <Deck 
-                setTotal={setTotal} 
-                progress={progress} 
-                setProgress={setProgress} 
-                iconsResult={iconsResult} 
+            <Deck
+                setTotal={setTotal}
+                progress={progress}
+                setProgress={setProgress}
+                iconsResult={iconsResult}
                 setIconsResult={setIconsResult}
             />
-            
+
             <DeckProgress progress={progress} total={total} iconsResult={iconsResult}/>
         </div>
     );
-}
+};

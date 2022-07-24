@@ -1,8 +1,9 @@
 import logoIMG from '../assets/images/logo.png';
 
-import './InitialScreen.css'
+import './InitialScreen.css';
 
 export default function InitialScreen ({ setIsInitialScreen }) {
+
     return (
         <div className="initial-screen">
 
@@ -10,12 +11,12 @@ export default function InitialScreen ({ setIsInitialScreen }) {
 
             <h1>ZapRecall</h1>
 
-            <div 
-                className="button-start" 
+            <div
+                className="button-start"
                 onClick={() => setIsInitialScreen(false)}>
                     Iniciar Recall!
             </div>
-        
+
         </div>
     );
-}
+};

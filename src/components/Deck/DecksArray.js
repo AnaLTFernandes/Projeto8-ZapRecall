@@ -93,7 +93,7 @@ const decks = [
             result: '',
         }
     ]
-]
+];
 
 export default function DecksArray() {
 
@@ -101,7 +101,7 @@ export default function DecksArray() {
 
     do {
         random = Math.round(Math.random() * (10));
-    } while (random > decks.length-1)
+    } while (random > decks.length-1);
 
     const deck = decks[random];
 
@@ -109,7 +109,7 @@ export default function DecksArray() {
 
     if (random < deck.length) {
         deck[random].secret = true;
-    }
+    };
 
     return (deck);
-}
+};
