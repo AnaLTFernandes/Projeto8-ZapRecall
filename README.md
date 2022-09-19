@@ -71,7 +71,6 @@ Treine sua memória aqui: https://projeto8-zaprecall-analtfernandes.vercel.app/
 ## :heavy_check_mark: Tecnologias utilizadas
 <img align="left" alt="css" height="25px" src="https://img.shields.io/badge/-CSS-blue?logo=css3&logoColor=white" />
 <img align="left" alt="react" height="25px" src="https://img.shields.io/badge/-React-5ED3F3?logo=react&logoColor=white" />
-<img align="left" alt="react-components" height="25px" src="https://img.shields.io/badge/React-components-success" />
 
 
 <br />
