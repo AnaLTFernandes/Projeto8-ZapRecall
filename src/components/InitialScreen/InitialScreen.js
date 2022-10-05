@@ -1,22 +1,37 @@
-import logoIMG from '../assets/images/logo.png';
+import { Link } from "react-router-dom";
+import logoIMG from "../assets/images/logo.png";
+import login from "../assets/images/enter-outline.svg";
+import logout from "../assets/images/exit-outline.svg";
 
-import './InitialScreen.css';
+import "./InitialScreen.css";
 
-export default function InitialScreen ({ setIsInitialScreen }) {
+export default function InitialScreen({ update, setUpdate }) {
+	const hasKey = localStorage.getItem("zaprecall");
 
-    return (
-        <div className="initial-screen">
+	function logOut() {
+		localStorage.removeItem("zaprecall");
+		setUpdate(!update);
+	}
 
-            <img src={logoIMG} alt="ZapRecall"/>
+	return (
+		<>
+			{hasKey ? (
+				<img className="access" src={logout} alt="logout" onClick={logOut} />
+			) : (
+				<Link to="/sign-in" className="access">
+					<img src={login} alt="login" />
+				</Link>
+			)}
 
-            <h1>ZapRecall</h1>
+			<div className="initial-screen">
+				<img src={logoIMG} alt="ZapRecall" />
 
-            <div
-                className="button-start"
-                onClick={() => setIsInitialScreen(false)}>
-                    Iniciar Recall!
-            </div>
+				<h1>ZapRecall</h1>
 
-        </div>
-    );
-};
+				<Link to="/deck">
+					<div className="button-start">Iniciar Recall!</div>
+				</Link>
+			</div>
+		</>
+	);
+}

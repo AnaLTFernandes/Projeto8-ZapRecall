@@ -1,33 +1,43 @@
-import { useState } from 'react';
-import Deck from '../Deck/Deck';
-import DeckProgress from '../DeckProgress/DeckProgress';
+import { useState } from "react";
+import { Link } from "react-router-dom";
 
-import logoIMG from '../assets/images/logo.png';
+import Deck from "../Deck/Deck";
+import DeckProgress from "../DeckProgress/DeckProgress";
 
-import './DeckScreen.css';
+import logoIMG from "../assets/images/logo.png";
+import back from "../assets/images/arrow-back-outline.svg";
 
-export default function DeckScreen({ setIsInitialScreen }) {
-    const [total, setTotal] = useState(0);
-    const [progress, setProgress] = useState(0);
-    const [iconsResult, setIconsResult] = useState([]);
+import "./DeckScreen.css";
 
-    return (
-        <div className="deck-screen">
+export default function DeckScreen() {
+	const [total, setTotal] = useState(0);
+	const [progress, setProgress] = useState(0);
+	const [iconsResult, setIconsResult] = useState([]);
 
-            <header className="top-deck-screen" onClick={() => setIsInitialScreen(true)}>
-                <img src={logoIMG} alt="ZapRecall"/>
-                <h1>ZapRecall</h1>
-            </header>
+	return (
+		<div className="deck-screen">
+			<Link to="/" className="arrow-back">
+				<img src={back} alt="return" />
+			</Link>
 
-            <Deck
-                setTotal={setTotal}
-                progress={progress}
-                setProgress={setProgress}
-                iconsResult={iconsResult}
-                setIconsResult={setIconsResult}
-            />
+			<header className="top-deck-screen">
+				<img src={logoIMG} alt="ZapRecall" />
+				<h1>ZapRecall</h1>
+			</header>
 
-            <DeckProgress progress={progress} total={total} iconsResult={iconsResult}/>
-        </div>
-    );
-};
+			<Deck
+				setTotal={setTotal}
+				progress={progress}
+				setProgress={setProgress}
+				iconsResult={iconsResult}
+				setIconsResult={setIconsResult}
+			/>
+
+			<DeckProgress
+				progress={progress}
+				total={total}
+				iconsResult={iconsResult}
+			/>
+		</div>
+	);
+}

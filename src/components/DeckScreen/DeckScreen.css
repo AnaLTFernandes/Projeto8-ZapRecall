@@ -1,19 +1,30 @@
 .deck-screen {
-    color: #333333;
-    display: flex;
-    flex-direction: column;
-    align-items: center;
+	color: #333333;
+	display: flex;
+	flex-direction: column;
+	align-items: center;
 }
 
 .deck-screen img {
-    width: 52px;
-    height: 60px;
+	width: 52px;
+	height: 60px;
 }
 
 .deck-screen .top-deck-screen {
-    display: flex;
-    justify-content: space-between;
-    align-items: center;
-    width: 240px;
-    margin: 38px auto auto;
+	display: flex;
+	justify-content: space-between;
+	align-items: center;
+	width: 240px;
+	margin: 38px auto auto;
+}
+
+.arrow-back {
+	filter: invert(1);
+	align-self: start;
+	margin: 10px;
+}
+
+.arrow-back img {
+	width: 40px;
+	cursor: pointer;
 }
