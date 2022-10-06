@@ -1,0 +1,70 @@
+.form-wripper {
+	width: 90%;
+	max-width: 400px;
+	margin: auto;
+	display: flex;
+	flex-direction: column;
+	align-items: center;
+	justify-content: space-between;
+}
+
+.form-wripper .logo {
+	display: flex;
+	align-items: center;
+	margin: 0 0 40px 0;
+}
+
+.form-wripper .logo img {
+	width: 50px;
+	margin: 0 20px 0 0;
+}
+
+form {
+	width: 100%;
+	display: flex;
+	flex-direction: column;
+	align-items: center;
+	justify-content: center;
+}
+
+form input {
+	width: 100%;
+	height: 40px;
+	border-radius: 5px;
+	border: none;
+	padding: 0 10px;
+	font-size: 16px;
+	margin: 5px 0;
+}
+
+form a {
+	font-size: 14px;
+	color: white;
+	text-decoration: none;
+	font-weight: 600;
+}
+
+button {
+	width: 100%;
+	height: 40px;
+	border-radius: 5px;
+	background-color: #ef2424;
+	border: none;
+	box-shadow: 0 4px 4px 0 rgba(0, 0, 0, 0.15);
+	font-weight: 400;
+	color: white;
+	font-size: 18px;
+	display: flex;
+	align-items: center;
+	justify-content: center;
+	margin: 20px 0 20px;
+	cursor: pointer;
+}
+
+button:hover {
+	filter: brightness(0.8);
+}
+
+a.link-return {
+	margin: 20px 0 0;
+}
