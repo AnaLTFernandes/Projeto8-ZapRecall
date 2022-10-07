@@ -1,28 +1,22 @@
+import { useState } from "react";
+
 import Flashcard from "../Flashcard/Flashcard";
-import deckArray from "./DecksArray";
+import createNewDeck from "../Deck/createNewDeck";
 
 import "./Deck.css";
 
-const deck = deckArray();
-
-function sort() {
-	deck.sort(() => Math.random() - 0.5);
-}
-
-sort();
-
 export default function Deck({
-	setTotal,
+	deck,
 	progress,
 	setProgress,
 	setIconsResult,
 	iconsResult,
 }) {
-	setTotal(deck.length);
+	const [newDeck, setNewDeck] = useState(createNewDeck(deck));
 
 	return (
 		<main className="deck">
-			{deck.map((flashcard, index) => (
+			{newDeck.map((flashcard, index) => (
 				<Flashcard
 					{...flashcard}
 					index={index}

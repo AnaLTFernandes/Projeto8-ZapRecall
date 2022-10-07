@@ -9,10 +9,12 @@ import back from "../assets/images/arrow-back-outline.svg";
 
 import "./DeckScreen.css";
 
-export default function DeckScreen() {
-	const [total, setTotal] = useState(0);
+
+export default function DeckScreen({ update, setUpdate, deck }) {
 	const [progress, setProgress] = useState(0);
 	const [iconsResult, setIconsResult] = useState([]);
+
+	const total = deck.length;
 
 	return (
 		<div className="deck-screen">
@@ -26,7 +28,7 @@ export default function DeckScreen() {
 			</header>
 
 			<Deck
-				setTotal={setTotal}
+				deck={deck}
 				progress={progress}
 				setProgress={setProgress}
 				iconsResult={iconsResult}

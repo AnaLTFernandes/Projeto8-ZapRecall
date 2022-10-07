@@ -1,6 +1,5 @@
 .initial-screen {
 	margin: auto;
-	height: 320px;
 	display: flex;
 	flex-direction: column;
 	align-items: center;
@@ -10,13 +9,15 @@
 .initial-screen img {
 	width: 136px;
 	height: 161px;
+	margin-bottom: 20px;
 }
 
 .initial-screen a {
 	text-decoration: none;
 }
 
-.initial-screen .button-start {
+.initial-screen .button-start,
+.initial-screen  button {
 	width: 246px;
 	height: 54px;
 	border-radius: 5px;
@@ -32,8 +33,14 @@
 	cursor: pointer;
 }
 
-.initial-screen .button-start:hover {
+.initial-screen .button-start:hover,
+.initial-screen button:hover {
 	filter: brightness(0.8);
+}
+
+.initial-screen button {
+	height: 50px;
+	margin: 0;
 }
 
 .access {
@@ -41,5 +48,21 @@
 	filter: invert(1);
 	align-self: end;
 	margin: 10px;
-    cursor: pointer;
+	cursor: pointer;
+}
+
+select {
+	width: 100%;
+	height: 45px;
+	border-radius: 5px;
+	margin: 40px 0 20px;
+	padding: 0 10px;
+	font-size: 18px;
+	color: #686868;
+}
+
+.initial-screen  span {
+	font-size: 12px;
+	color: #ffffff;
+	margin: 7px 0 30px;
 }

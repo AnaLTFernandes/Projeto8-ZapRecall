@@ -9,15 +9,22 @@ import logout from "../assets/images/exit-outline.svg";
 
 import "./InitialScreen.css";
 
-export default function InitialScreen({ update, setUpdate, decks, setDecks }) {
-	const hasKey = localStorage.getItem("zaprecall");
+export default function InitialScreen({
+	update,
+	setUpdate,
+	decks,
+	setDecks,
+	choosenDeck,
+	setChoosenDeck,
+}) {
+	const { key_access: hasKey } = JSON.parse(localStorage.getItem("zaprecall"));
 
 	useEffect(() => {
-		const promise = getDecks();
+		const promise = getDecks(hasKey);
 
 		promise.catch(() => {
 			window.alert(
-				"Não foi possível buscar os decks, por favor reinicie a página."
+				"Não foi possível buscar os decks, por favor recarregue a página."
 			);
 		});
 
@@ -46,7 +53,24 @@ export default function InitialScreen({ update, setUpdate, decks, setDecks }) {
 
 				<h1>ZapRecall</h1>
 
-				<Link to="/deck">
+				<select
+					value={choosenDeck}
+					onChange={(e) => setChoosenDeck(e.target.value)}
+				>
+					{decks.map((deck, index) => (
+						<option key={index} value={index}>
+							{deck.name}
+						</option>
+					))}
+				</select>
+
+				<Link to={hasKey ? "/create" : ""}>
+					<button disabled={hasKey ? false : true}>Criar cartão</button>
+				</Link>
+
+				<span>Para criar seus cartões, faça o login.</span>
+
+				<Link to={decks.length > 0 ? "/deck" : ""}>
 					<div className="button-start">Iniciar Recall!</div>
 				</Link>
 			</div>

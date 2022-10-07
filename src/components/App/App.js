@@ -12,6 +12,7 @@ import "./css/style.css";
 export default function App() {
 	const [update, setUpdate] = useState(false);
 	const [decks, setDecks] = useState([]);
+	const [choosenDeck, setChoosenDeck] = useState(0);
 
 	return (
 		<BrowserRouter>
@@ -27,6 +28,8 @@ export default function App() {
 							setUpdate={setUpdate}
 							decks={decks}
 							setDecks={setDecks}
+							choosenDeck={choosenDeck}
+							setChoosenDeck={setChoosenDeck}
 						/>
 					}
 				/>
@@ -37,8 +40,7 @@ export default function App() {
 						<DeckScreen
 							update={update}
 							setUpdate={setUpdate}
-							decks={decks}
-							setDecks={setDecks}
+							deck={decks[choosenDeck]?.cards}
 						/>
 					}
 				/>

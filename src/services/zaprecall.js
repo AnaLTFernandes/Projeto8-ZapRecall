@@ -2,8 +2,15 @@ import axios from "axios";
 
 const BASE_URI = "https://zap-recall.herokuapp.com";
 
-function getDecks() {
-	const promise = axios.get(`${BASE_URI}/decks`);
+function getDecks(key) {
+	const config = {
+		headers: {
+			Key_Access: key,
+		},
+	};
+
+	const promise = axios.get(`${BASE_URI}/decks`, config);
+
 	return promise;
 }
 
