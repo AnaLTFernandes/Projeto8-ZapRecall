@@ -7,9 +7,14 @@ function getDecks() {
 	return promise;
 }
 
-function postLogin(body) {
+function postSignIn(body) {
 	const promise = axios.post(`${BASE_URI}/sign-in`, body);
 	return promise;
 }
 
-export { getDecks, postLogin };
+function postSignUp(body) {
+	const promise = axios.post(`${BASE_URI}/sign-up`, body);
+	return promise;
+}
+
+export { getDecks, postSignIn, postSignUp };

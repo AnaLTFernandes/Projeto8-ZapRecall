@@ -3,7 +3,8 @@ import { useState } from "react";
 
 import DeckScreen from "../DeckScreen/DeckScreen";
 import InitialScreen from "../InitialScreen/InitialScreen";
-import Login from "../AcessPages/Login";
+import SignIn from "../AcessPages/SignIn";
+import SignUp from "../AcessPages/SignUp";
 
 import "./css/reset.css";
 import "./css/style.css";
@@ -15,7 +16,8 @@ export default function App() {
 	return (
 		<BrowserRouter>
 			<Routes>
-				<Route path="/sign-in" element={<Login />} />
+				<Route path="/sign-in" element={<SignIn />} />
+				<Route path="/sign-up" element={<SignUp />} />
 
 				<Route
 					path="/"

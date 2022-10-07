@@ -1,11 +1,13 @@
 import { Link, useNavigate } from "react-router-dom";
 import { useState } from "react";
 
-import { postLogin } from "../../services/zaprecall";
+import { postSignIn } from "../../services/zaprecall";
+import Loading from "../common/Loading";
 import Form from "./Form";
 
-export default function Login() {
+export default function SignIn() {
 	const [form, setForm] = useState({});
+	const [disabled, setDisabled] = useState(false);
 
 	const navigate = useNavigate();
 
@@ -19,13 +21,21 @@ export default function Login() {
 	function handleForm(event) {
 		event.preventDefault();
 
-		const promise = postLogin(form);
+		setDisabled(true);
 
-		promise.catch((response) => {
-			window.alert(response.response.data.message);
+		const promise = postSignIn(form);
+
+		promise.catch((error) => {
+			window.alert(error.response.data.message);
+
+			setDisabled(false);
 		});
 
-		promise.then(() => {
+		promise.then((response) => {
+			localStorage.setItem(
+				"zaprecall",
+				JSON.stringify({ key_access: response.data.key_access })
+			);
 			navigate("/");
 		});
 	}
@@ -40,6 +50,7 @@ export default function Login() {
 				onChange={(e) =>
 					updateForm({ name: e.target.name, value: e.target.value })
 				}
+				disabled={disabled}
 			></input>
 
 			<input
@@ -50,12 +61,17 @@ export default function Login() {
 				onChange={(e) =>
 					updateForm({ name: e.target.name, value: e.target.value })
 				}
+				disabled={disabled}
 			></input>
 
-			<button>Entrar</button>
+			<button disabled={disabled}>
+				{disabled ? <Loading size="40px" /> : "Entrar"}
+			</button>
 
 			<Link to="/sign-up">Não tem uma conta? Cadastre-se!</Link>
-			<Link to="/" className='link-return'>Voltar</Link>
+			<Link to="/" className="link-return">
+				Voltar
+			</Link>
 		</Form>
 	);
 }
