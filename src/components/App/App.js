@@ -5,6 +5,7 @@ import DeckScreen from "../DeckScreen/DeckScreen";
 import InitialScreen from "../InitialScreen/InitialScreen";
 import SignIn from "../AcessPages/SignIn";
 import SignUp from "../AcessPages/SignUp";
+import CreateDeck from "../createDeck/CreateDeck";
 
 import "./css/reset.css";
 import "./css/style.css";
@@ -44,6 +45,8 @@ export default function App() {
 						/>
 					}
 				/>
+
+				<Route path="/create" element={<CreateDeck />} />
 			</Routes>
 		</BrowserRouter>
 	);

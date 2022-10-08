@@ -2,14 +2,32 @@ import axios from "axios";
 
 const BASE_URI = "https://zap-recall.herokuapp.com";
 
-function getDecks(key) {
-	const config = {
-		headers: {
-			Key_Access: key,
-		},
-	};
+function createHeaders() {
+	const key_access = JSON.parse(localStorage.getItem("zaprecall"))?.key_access;
+
+	const config = {};
+
+	if (key_access) {
+		config.headers = {
+			Key_Access: key_access,
+		};
+	}
+
+	return config;
+}
+
+function getDecks() {
+	const config = createHeaders();
 
 	const promise = axios.get(`${BASE_URI}/decks`, config);
+
+	return promise;
+}
+
+function postDeck(body) {
+	const config = createHeaders();
+
+	const promise = axios.post(`${BASE_URI}/deck`, body, config);
 
 	return promise;
 }
@@ -24,4 +42,4 @@ function postSignUp(body) {
 	return promise;
 }
 
-export { getDecks, postSignIn, postSignUp };
+export { getDecks, postDeck, postSignIn, postSignUp };

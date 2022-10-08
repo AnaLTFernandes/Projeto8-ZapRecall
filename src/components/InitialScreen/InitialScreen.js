@@ -1,5 +1,5 @@
 import { Link } from "react-router-dom";
-import { useEffect, useState } from "react";
+import { useEffect } from "react";
 
 import { getDecks } from "../../services/zaprecall";
 
@@ -17,10 +17,10 @@ export default function InitialScreen({
 	choosenDeck,
 	setChoosenDeck,
 }) {
-	const { key_access: hasKey } = JSON.parse(localStorage.getItem("zaprecall"));
+	const hasKey = JSON.parse(localStorage.getItem("zaprecall"));
 
 	useEffect(() => {
-		const promise = getDecks(hasKey);
+		const promise = getDecks();
 
 		promise.catch(() => {
 			window.alert(
@@ -65,10 +65,14 @@ export default function InitialScreen({
 				</select>
 
 				<Link to={hasKey ? "/create" : ""}>
-					<button disabled={hasKey ? false : true}>Criar cartão</button>
+					<button disabled={hasKey ? false : true}>Criar baralho</button>
 				</Link>
 
-				<span>Para criar seus cartões, faça o login.</span>
+				{hasKey ? (
+					<span></span>
+				) : (
+					<span>Para criar seus baralhos, faça o login.</span>
+				)}
 
 				<Link to={decks.length > 0 ? "/deck" : ""}>
 					<div className="button-start">Iniciar Recall!</div>

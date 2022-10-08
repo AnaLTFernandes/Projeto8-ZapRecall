@@ -17,7 +17,7 @@
 }
 
 .initial-screen .button-start,
-.initial-screen  button {
+.initial-screen button {
 	width: 246px;
 	height: 54px;
 	border-radius: 5px;
@@ -61,7 +61,7 @@ select {
 	color: #686868;
 }
 
-.initial-screen  span {
+.initial-screen span {
 	font-size: 12px;
 	color: #ffffff;
 	margin: 7px 0 30px;

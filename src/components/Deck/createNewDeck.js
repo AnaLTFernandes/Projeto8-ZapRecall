@@ -1,5 +1,5 @@
 export default function createNewDeck(cards) {
-	let random = Math.floor(Math.random() * 20);
+	let random = Math.floor(Math.random() * 15);
 
 	const deck = cards.map((card) => ({
 		...card,
