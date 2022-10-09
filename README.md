@@ -18,6 +18,10 @@ Treine sua memória aqui: https://projeto8-zaprecall-analtfernandes.vercel.app/
 <br />
 
 ## :hammer: Funcionalidades
+- Cadastro
+- Login
+- Logout
+- Criar baralho
 - Iniciar revisão
 - Sorteio de baralho
 - Listagem de cartas
