@@ -3,12 +3,14 @@ import { useEffect, useState } from "react";
 
 import { postDeck } from "../../services/zaprecall";
 import Form from "./Form";
+import CreateFlashcard from "./CreateFlashcard";
 
 import back from "../assets/images/arrow-back-outline.svg";
 
 import "./CreateDeck.css";
 
 export default function CreateDeck() {
+	const [disabled, setDisabled] = useState(false);
 	const [form, setForm] = useState({});
 
 	const navigate = useNavigate();
@@ -25,26 +27,33 @@ export default function CreateDeck() {
 	function handleQuantity(event) {
 		event.preventDefault();
 
-		updateForm({ name: 'cards', value: new Array(Number(quantity)).fill({}) })
+		const cards = [];
+
+		for (let i = 0; i < quantity; i++) {
+			cards.push({});
+		}
+
+		updateForm({ name: "cards", value: cards });
 	}
 
 	function handleForm(event) {
 		event.preventDefault();
 
-		console.log(form);
-		/*
-		const promise = postDeck();
+		setDisabled(true);
+
+		const promise = postDeck(form);
 
 		promise.catch(() => {
 			window.alert(
 				"Não foi possível criar o baralho, por favor verifique os dados."
 			);
+
+			setDisabled(false);
 		});
 
-		promise.then((response) => {
-			setDecks(response.data);
+		promise.then(() => {
+			navigate("/");
 		});
-        */
 	}
 
 	function updateForm({ name, value }) {
@@ -67,9 +76,9 @@ export default function CreateDeck() {
 						required
 						type="number"
 						placeholder="Insira um número entre 4 e 10"
-						min="4"
+						min="2"
 						max="10"
-						className="number-cards"
+						className="input-minor"
 						onChange={(e) => (quantity = e.target.value)}
 						disabled={form.cards ? true : false}
 					></input>
@@ -84,19 +93,43 @@ export default function CreateDeck() {
 
 					<div className="horizontal-div"></div>
 
+					{form.cards?.length > 0 ? (
+						<>
+							<input
+								autoComplete="false"
+								required
+								type="text"
+								name="name"
+								placeholder="Nome do baralho"
+								onChange={(e) =>
+									updateForm({ name: e.target.name, value: e.target.value })
+								}
+								className="input-minor deck-name"
+							></input>
 
-					<input
-						required
-						type="number"
-						placeholder="Insira um número entre 4 e 10"
-						min="4"
-						max="10"
-						onChange={(e) => (quantity = e.target.value)}
-					></input>
+							{form.cards.map((card, index) => (
+								<CreateFlashcard key={index} index={index} card={card} />
+							))}
 
-					<button disabled={form.password ? false : false}>
-						Criar baralho
-					</button>
+							<input
+								autoComplete="false"
+								required
+								type="password"
+								name="password"
+								placeholder="Senha de usuário"
+								onChange={(e) =>
+									updateForm({ name: e.target.name, value: e.target.value })
+								}
+								className="input-minor user-password"
+							></input>
+
+							<button disabled={form.password && !disabled ? false : true}>
+								Criar baralho
+							</button>
+						</>
+					) : (
+						<></>
+					)}
 				</Form>
 			</main>
 		</>

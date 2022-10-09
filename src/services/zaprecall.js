@@ -27,7 +27,7 @@ function getDecks() {
 function postDeck(body) {
 	const config = createHeaders();
 
-	const promise = axios.post(`${BASE_URI}/deck`, body, config);
+	const promise = axios.post(`${BASE_URI}/decks`, body, config);
 
 	return promise;
 }
