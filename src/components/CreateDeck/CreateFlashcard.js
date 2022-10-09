@@ -8,7 +8,6 @@ export default function CreateFlashcard({ index, card }) {
 				autoComplete="false"
 				required
 				type="text"
-				name="question"
 				placeholder="Frente"
 				onChange={(e) => (card.question = e.target.value)}
 			></input>
@@ -16,7 +15,6 @@ export default function CreateFlashcard({ index, card }) {
 			<input
 				autoComplete="false"
 				required
-				name="answer"
 				type="text"
 				placeholder="Verso"
 				onChange={(e) => (card.answer = e.target.value)}

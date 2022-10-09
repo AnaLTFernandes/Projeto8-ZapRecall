@@ -5,7 +5,7 @@ import DeckScreen from "../DeckScreen/DeckScreen";
 import InitialScreen from "../InitialScreen/InitialScreen";
 import SignIn from "../AcessPages/SignIn";
 import SignUp from "../AcessPages/SignUp";
-import CreateDeck from "../createDeck/CreateDeck";
+import CreateDeck from "../CreateDeck/CreateDeck";
 
 import "./css/reset.css";
 import "./css/style.css";
