@@ -53,7 +53,15 @@ Treine sua memória aqui: https://projeto8-zaprecall-analtfernandes.vercel.app/
 
 <br />
 
-3. Inicie o programa:
+3. Instale e configure o backend em https://github.com/AnaLTFernandes/zap-recall-back/
+
+<br />
+
+4. Mude a variável *BASE_URI* no arquivo [zaprecall](https://github.com/AnaLTFernandes/zap-recall/blob/main/src/services/zaprecall.js) para `http://localhost:{BACKEND_PORT}`
+
+<br />
+
+5. Inicie o programa:
 >```bash
 >#se você usa npm
 >$ npm start
@@ -68,7 +76,7 @@ Treine sua memória aqui: https://projeto8-zaprecall-analtfernandes.vercel.app/
 
 <br />
 
-4. Acesse http://localhost:3000 no seu navegador e aproveite <3
+6. Acesse http://localhost:3000 no seu navegador e aproveite <3
 
 <br />
 
