@@ -1,5 +1,7 @@
 # :zap: Zap Recall
 
+![Badge Finalizado](https://img.shields.io/static/v1?label=STATUS&message=FINALIZADO&color=success&style=for-the-badge)
+
 <p>
  Página web para auxiliar na revisão de conteúdos vistos previamente, onde cada flashcard possui uma pergunta/afirmação em sua frente e uma resposta atrás. Os flashcards possuem, também, três botões que o usuário poderá escolher com base eu seu esforço para se lembrar da resposta da respectiva carta.
 </p>
@@ -33,7 +35,7 @@ Treine sua memória aqui: https://projeto8-zaprecall-analtfernandes.vercel.app/
 ## :hammer_and_wrench: Abrir e rodar o projeto
 1. Clone esse repositório:
 >```bash
->$ git clone https://github.com/AnaLTFernandes/zap-recall.git
+>$ git clone https://github.com/anatfernandes/zap-recall.git
 >```
 
 <br />
@@ -53,11 +55,11 @@ Treine sua memória aqui: https://projeto8-zaprecall-analtfernandes.vercel.app/
 
 <br />
 
-3. Instale e configure o backend em https://github.com/AnaLTFernandes/zap-recall-back/
+3. Instale e configure o backend em https://github.com/anatfernandes/zap-recall-back/
 
 <br />
 
-4. Mude a variável *BASE_URI* no arquivo [zaprecall](https://github.com/AnaLTFernandes/zap-recall/blob/main/src/services/zaprecall.js) para `http://localhost:{BACKEND_PORT}`
+4. Mude a variável *BASE_URI* no arquivo [zaprecall](https://github.com/anatfernandes/zap-recall/blob/main/src/services/zaprecall.js) para `http://localhost:{BACKEND_PORT}`
 
 <br />
 
